@@ -35,9 +35,9 @@ main {
 }
 
 .container-navbar ul {
+  gap: 7vh;
   display: flex;
   flex-direction: row;
   list-style: none;
-  justify-content: space-around;
   align-items: center;
 }

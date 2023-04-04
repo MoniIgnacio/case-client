@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -6,29 +5,33 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    authenticaUser();
     navigate("/");
   };
 
   const colorLink = {
-    color:'#fff'
-  }
+    color: "#fff",
+  };
+
   return (
     <div className="container-navbar">
       <ul>
         <li>
-          <Link to={`/`} style={colorLink}>Home</Link>
+          <Link to={`/`} style={colorLink}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to={`/login`} style={colorLink}>Login</Link>
+          <Link to={`/login`} style={colorLink}>
+            Login
+          </Link>
         </li>
         <li>
-          <Link to={"/signup"} style={colorLink}>Signup</Link>
+          <Link to={"/signup"} style={colorLink}>
+            Signup
+          </Link>
         </li>
         <li>
-          <button onClick={handleLogout}>
-            Logout
-          </button>
+          <button onClick={handleLogout}>Logout</button>
         </li>
       </ul>
     </div>

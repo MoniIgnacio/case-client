@@ -9,7 +9,7 @@ const loginService = (userCredentials) => {
 };
 
 const usersService = (userCredentials) => {
-  return service.post("/user", userCredentials);
+  return service.get("/user", userCredentials);
 };
 
 const verifyService = () => {

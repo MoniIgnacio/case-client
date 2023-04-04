@@ -1,4 +1,4 @@
-# Test-Case 
+# Test-Case
 
 Creation of Web Pages for Registering and Viewing Registered Users.
 
@@ -16,7 +16,6 @@ Creation of Web Pages for Registering and Viewing Registered Users.
 
 - [React]
 - [Javascript]
-- [React Bootstrap]
 - [Jwt Token]
 - [Regexr]
 - [MySql]
@@ -32,11 +31,10 @@ Creation of Web Pages for Registering and Viewing Registered Users.
 
 | METHOD | URL       | PARAM | BODY             | DESCRIPTION                   |
 | ------ | --------- | ----- | ---------------- | ----------------------------- |
-| GET    | '/'       | id    | n\a              | Gets all users                |
+| GET    | '/'       | n\a   | n\a              | Gets all users                |
 | POST   | '/login'  | n\a   | email & password | Validate the user credentials |
 | POST   | '/create' | n\a   | all description  | New User registrer            |
-| GET    | '/verify' | n/a   | n\a              | Send to FE the verify token   |
-
+| GET    | '/verify' | n\a   | n\a              | Send to FE the verify token   |
 
 ## Installation
 
@@ -60,12 +58,11 @@ npm start
 
 [react]: https://reactjs.org/
 [javascript]: https://www.javascript.com/
-[react bootstrap]: https://react-bootstrap.github.io/
-[MySql]: https://dev.mysql.com/doc/
+[mysql]: https://dev.mysql.com/doc/
 [node.js]: http://nodejs.org
 [express]: http://expressjs.com
 [regexr]: https://regexr.com/
 [jwt token]: https://jwt.io/
-[Server code]: https://github.com/MoniIgnacio/case-server
-[Client code]: https://github.com/MoniIgnacio/case-client
+[server code]: https://github.com/MoniIgnacio/case-server
+[client code]: https://github.com/MoniIgnacio/case-client
 [axios]: https://www.npmjs.com/package/axios

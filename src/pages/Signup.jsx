@@ -65,7 +65,9 @@ function Signup() {
             onChange={handlePassword2Change}
           />
 
-          {errorMessage !== "" && <p style={{color:'red'}}>{errorMessage}</p>}
+          {errorMessage !== "" && (
+            <p style={{ color: "red" }}>{errorMessage}</p>
+          )}
           <button type="submit">Create user</button>
         </form>
       </header>

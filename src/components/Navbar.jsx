@@ -2,13 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     navigate("/");
   };
 
-  const colorLink = {
+  const linkStyle = {
     color: "#fff",
   };
 
@@ -16,20 +15,20 @@ function Navbar() {
     <div className="container-navbar">
       <ul>
         <li>
-          <Link to={`/`} style={colorLink}>
+          <Link to={`/`} style={linkStyle}>
             Home
           </Link>
         </li>
         <li>
-          <Link to={`/login`} style={colorLink}>
+          <Link to={`/login`} style={linkStyle}>
             Login
           </Link>
         </li>
         <li>
-          <Link to={"/signup"} style={colorLink}>
+          <Link to={"/signup"} style={linkStyle}>
             Signup
           </Link>
-        </li>
+        </li>   
         <li>
           <button onClick={handleLogout}>Logout</button>
         </li>

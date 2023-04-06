@@ -50,7 +50,6 @@ function Dashboard() {
       setError(null);
       previousSearch.current = search;
       const newUser = await userService(search);
-      // console.log(newUser.data)
       setUser(newUser.data);
     } catch (e) {
       setError(e.message);
@@ -58,8 +57,6 @@ function Dashboard() {
       setLoading(false);
     }
   };
-
-  console.log(user);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -70,7 +67,7 @@ function Dashboard() {
     const newSearch = event.target.value;
     updateSearch(newSearch);
   };
-
+  
   return (
     <div className="container-login">
       <h3>Welcome 'user'</h3>
@@ -86,13 +83,27 @@ function Dashboard() {
           name="query"
           placeholder="user@example.com"
         />
-        {error !== "" && <p style={{ color: "red" }}>{error}</p>}
 
         <button type="submit">Search</button>
       </form>
 
-      <main>
-        Info here!
+      {error !== "" && <p style={{ color: "red" }}>{error}</p>}
+      <p>Info here!</p>
+      
+      {user.length === 0 && <p>Without Results</p>}
+      
+      <main style={{ display: "flex", flexDirection: "column" }}>
+        {user.map((e) => {
+          return (
+            <div key={e.id}>
+              <ul>
+                <li>
+                 Email: {e.email} - Id: {e.id}.
+                </li>
+              </ul>
+            </div>
+          );
+        })}
       </main>
     </div>
   );

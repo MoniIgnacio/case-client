@@ -70,7 +70,7 @@ function Dashboard() {
   
   return (
     <div className="container-login">
-      <h3>Welcome 'user'</h3>
+      <h3>Welcome</h3>
       <form className="form-login" onSubmit={handleSubmit}>
         <label> Search your friend </label>
         <input

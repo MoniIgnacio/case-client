@@ -1,14 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
+import { verifyService } from "../services/auth.services";
+import { useEffect, useState } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
+  const [user, setuser] = useState("");
+  const [online, setOnline] = useState(false);
+
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    navigate("/");
+    navigate("/login");
   };
 
   const linkStyle = {
     color: "#fff",
+  };
+
+  useEffect(() => {
+    isActive();
+  }, []);
+
+  const isActive = async () => {
+    try {
+      const userActive = await verifyService();
+      setuser(userActive?.data.user);
+      setOnline(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -20,17 +39,21 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to={`/login`} style={linkStyle}>
-            Login
-          </Link>
+          {online ? null : (
+            <Link to={`/login`} style={linkStyle}>
+              Login
+            </Link>
+          )}
         </li>
         <li>
-          <Link to={"/signup"} style={linkStyle}>
-            Signup
-          </Link>
-        </li>   
+          {online ? null : (
+            <Link to={"/signup"} style={linkStyle}>
+              Signup
+            </Link>
+          )}
+        </li>
         <li>
-          <button onClick={handleLogout}>Logout</button>
+          {online ? <button onClick={handleLogout}>Logout</button> : null}
         </li>
       </ul>
     </div>

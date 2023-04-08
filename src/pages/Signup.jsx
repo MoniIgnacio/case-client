@@ -39,38 +39,38 @@ function Signup() {
 
   return (
     <div>
-      <header>
-        <form className="form" onSubmit={handleSignup}>
-          <input
-            type="email"
-            placeholder="user@example.com"
-            name="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-
-          <input
-            type="password"
-            placeholder="• • • • • •"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-
-          <input
-            type="password"
-            placeholder="• • • • • •"
-            name="password2"
-            value={password2}
-            onChange={handlePassword2Change}
-          />
-
-          {errorMessage !== "" && (
-            <p style={{ color: "red" }}>{errorMessage}</p>
-          )}
-          <button type="submit">Create user</button>
-        </form>
+      <header style={{ display: "flex", justifyContent: "center" }}>
+        <h2 style={{ color: "#fff" }}>Create User</h2>
       </header>
+
+      <form className="form" onSubmit={handleSignup}>
+        <input
+          type="email"
+          placeholder="user@example.com"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+
+        <input
+          type="password"
+          placeholder="• • • • • •"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+
+        <input
+          type="password"
+          placeholder="• • • • • •"
+          name="password2"
+          value={password2}
+          onChange={handlePassword2Change}
+        />
+
+        {errorMessage !== "" && <p style={{ color: "red" }}>{errorMessage}</p>}
+        <button type="submit">Create user</button>
+      </form>
     </div>
   );
 }

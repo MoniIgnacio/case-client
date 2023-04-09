@@ -22,7 +22,6 @@ function Login() {
     try {
       const response = await loginService(userCredentials);
       localStorage.setItem("authToken", response.data.authToken);
-
       navigate("/dashboard");
     } catch (error) {
       if (error.response && error.response.status === 400) {

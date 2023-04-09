@@ -60,7 +60,11 @@ function Dashboard() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getDataUsers(search);
+    if(error){
+    return
+    }else{
+      getDataUsers(search);
+    }
   };
 
   const handleChange = (event) => {

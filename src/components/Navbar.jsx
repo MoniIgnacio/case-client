@@ -7,8 +7,13 @@ function Navbar() {
   const [user, setuser] = useState("");
   const [online, setOnline] = useState(false);
 
+  useEffect(() => {
+    isActive();
+  }, [online]);
+
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    setOnline(false);
     navigate("/login");
   };
 
@@ -16,17 +21,14 @@ function Navbar() {
     color: "#fff",
   };
 
-  useEffect(() => {
-    isActive();
-  }, []);
-
   const isActive = async () => {
     try {
       const userActive = await verifyService();
       setuser(userActive?.data.user);
       setOnline(true);
     } catch (error) {
-      console.log(error);
+      setuser("");
+      setOnline(false);
     }
   };
 
